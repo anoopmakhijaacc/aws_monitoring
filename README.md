@@ -1,21 +1,22 @@
-# Cartridge Specification
-The purpose of this repository is to define the specification for a cartridge and to provide a base repository that can be used to create cartridges from.
+# AWS Monitoring
+This cartridge is use for collecting the AWS resources from all regions and send them as report in attachment.
 
-## Stucture
-A cartridge is broken down into the following sections:
+## AWS resources
+The following resources are monitored as part of this cartridge:
 
- * infra
-  * For infrastructure-related items
- * jenkins
-  * For Jenkins-related items
- * src
-  * For source control-related items
+ * EC2
+ * VPC
+ * Elastic IP
+ * KeyPair
+ * S3 buckets
+ * IAM Users and Groups
 
-## Metadata
-Each cartridge should contain a "metadata.cartridge" file that specifies the following metadata:
+## User Inputs
+This Jenkins job requires three user inputs:
 
- * `CARTRIDGE_SDK_VERSION`
-  * This defines the version of the Cartridge SDK that the cartridge conforms to
- 
-## Using this Repository
-When developing a cartridge it is advisable to make a copy of this repository and remove all of the README.md files so that it may be used as a basis for the new cartridge.
+* EMAIL_RECIPIENTS
+  This is a comma separated list (optional whitespace after commas) of email addresses that should receive AWS report.
+* AWS_AccountName
+  AWS account name for example DCSC-training
+* AWS_CREDENTIALS
+  AWS access key and secret key for your account

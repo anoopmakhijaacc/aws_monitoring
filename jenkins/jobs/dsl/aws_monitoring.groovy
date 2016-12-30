@@ -109,10 +109,10 @@ done
       defaultSubject('''List of AWS Resources on $AWS_AccountName AWS account''')
       defaultContent('''Hi,
 
-      Please find attached the txt files containing details for all existing aws resources in each region for the $AWS_AccountName.
+Please find attached the txt files containing details for all existing aws resources in each region for the $AWS_AccountName.
 
-      Thank you,
-      DCSC Team
+Thank you,
+DCSC Team
 ''')
       preSendScript('''$DEFAULT_PRESEND_SCRIPT''')
       triggers {
