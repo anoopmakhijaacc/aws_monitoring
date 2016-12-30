@@ -20,3 +20,6 @@ This Jenkins job requires three user inputs:
   * AWS account name for example DCSC-training
 * AWS_CREDENTIALS
   * AWS access key and secret key for your account
+
+## E-Mail Notification
+E-mail would be send after successful completion of the Jenkins Job. Jenkins configuration for sending e-mail should be done as prerequisite for sending emails.
