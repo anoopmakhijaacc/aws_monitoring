@@ -49,28 +49,28 @@ for region in us-east-1 us-east-2 us-west-1 us-west-2 ca-central-1 ap-south-1 ap
 ###############################################################################################################
 #Check for EC2
 echo "Querying EC2 in $region...."
-echo -e "\n######################### AWS REGION $region ###########################\n\n" >> aws_resource/EC2_Instances.txt
+echo -e "\\n######################### AWS REGION $region ###########################\\n\\n" >> aws_resource/EC2_Instances.txt
 aws ec2 describe-instances --region $region --query 'Reservations[*].Instances[*].{Instance_ID:InstanceId,State:State.Name,Instance_Type:InstanceType,keyName:KeyName,Instance_Name:Tags[?Key==`Name`].Value | [0]}' --output table >> aws_resource/EC2_Instances.txt
 #################################################################################################################
 
 ###############################################################################################################
 #Check for VPC
 echo "Querying VPC in $region...."
-echo -e "\n######################### AWS REGION $region ###########################\n\n" >> aws_resource/VPC.txt
+echo -e "\\n######################### AWS REGION $region ###########################\\n\\n" >> aws_resource/VPC.txt
 aws ec2 describe-vpcs --region $region --query 'Vpcs[*].{VpcId:VpcId,CidrBlock:CidrBlock,State:State,InstanceTenancy:InstanceTenancy,IsDefault:IsDefault}' --output table >> aws_resource/VPC.txt
 #################################################################################################################
 
 ###############################################################################################################
 #Check for EIP
 echo "Querying EIP in $region...."
-echo -e "\n######################### AWS REGION $region ###########################\n\n" >> aws_resource/EIP.txt
+echo -e "\\n######################### AWS REGION $region ###########################\\n\\n" >> aws_resource/EIP.txt
 aws ec2 describe-addresses --region $region --query 'Addresses[*].{AllocationId:AllocationId,EIP:PublicIp,InstanceId:InstanceId,Instance_PrivateIpAddress:PrivateIpAddress}' --output table >> aws_resource/EIP.txt
 #################################################################################################################
 
 ###############################################################################################################
 #Check for KeyPair
 echo "Querying KeyPair in $region...."
-echo -e "\n######################### AWS REGION $region ###########################\n\n" >> aws_resource/KeyPair.txt
+echo -e "\\n######################### AWS REGION $region ###########################\\n\\n" >> aws_resource/KeyPair.txt
 aws ec2 describe-key-pairs --region $region --output table >> aws_resource/KeyPair.txt
 #################################################################################################################
 
@@ -79,17 +79,17 @@ done
 ###############################################################################################################
 #Check for S3 bucket
 echo "Querying S3 buckets...."
-echo -e "List of S3 buckets:\n" >> aws_resource/S3.txt
+echo -e "List of S3 buckets:\\n" >> aws_resource/S3.txt
 aws s3 ls | cut -f3 -d" " >> aws_resource/S3.txt
 #################################################################################################################
 
 ###############################################################################################################
 #Check for IAM User
 echo "Querying IAM User...."
-echo -e "List of IAM Users:\n" >> aws_resource/IAM.txt
+echo -e "List of IAM Users:\\n" >> aws_resource/IAM.txt
 aws iam list-users --query 'Users[*].{IAM_User:UserName,User_CreateDate:CreateDate,User_LastLoginOn:PasswordLastUsed}' --output table >> aws_resource/IAM.txt
 
-echo -e "\n\nList of IAM Groups:\n" >> aws_resource/IAM.txt
+echo -e "\\n\\nList of IAM Groups:\\n" >> aws_resource/IAM.txt
 aws iam list-groups --query 'Groups[*].{GroupName:GroupName,Group_CreateDate:CreateDate}' --output table >> aws_resource/IAM.txt
 #################################################################################################################
 
