@@ -15,8 +15,8 @@ The following resources are monitored as part of this cartridge:
 This Jenkins job requires three user inputs:
 
 * EMAIL_RECIPIENTS
-  This is a comma separated list (optional whitespace after commas) of email addresses that should receive AWS report.
+  * This is a comma separated list (optional whitespace after commas) of email addresses that should receive AWS report.
 * AWS_AccountName
-  AWS account name for example DCSC-training
+  * AWS account name for example DCSC-training
 * AWS_CREDENTIALS
-  AWS access key and secret key for your account
+  * AWS access key and secret key for your account
