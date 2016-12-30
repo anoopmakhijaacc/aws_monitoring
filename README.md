@@ -22,7 +22,7 @@ This Jenkins job requires three user inputs:
   * AWS access key and secret key for your account
 
 ## Schedule build
-This Jenkins job is scheduled to build automatically weekly at 12:00 AM on every Sunday. This schedule can be modified in job configuration.
+This Jenkins job is scheduled to build weekly at 12:00 AM on every Sunday. This schedule can be modified in job configuration.
 
 ## E-Mail Notification
 E-mail would be send after successful completion of the Jenkins Job. Jenkins configuration for sending e-mail should be done as prerequisite for sending emails.
