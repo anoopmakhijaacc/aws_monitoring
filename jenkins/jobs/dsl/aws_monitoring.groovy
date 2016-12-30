@@ -105,13 +105,12 @@ done
     extendedEmail {
       recipientList('''$EMAIL_RECIPIENTS''')
       replyToList('''$DEFAULT_REPLYTO''')
-      contentType('text/html')
       attachmentPatterns('aws_resource/*.txt')
       defaultSubject('''List of AWS Resources on $AWS_AccountName AWS account''')
       defaultContent('''Hi,
 
       Please find attached the txt files containing details for all existing aws resources in each region for the $AWS_AccountName.
-      
+
       Thank you,
       DCSC Team
 ''')
